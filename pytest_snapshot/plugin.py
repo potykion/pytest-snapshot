@@ -132,7 +132,7 @@ class Snapshot(object):
         snapshot_path = self._snapshot_path(snapshot_name)
 
         if snapshot_path.is_file():
-            expected_value = snapshot_path.read_text()
+            expected_value = snapshot_path.read_text(encoding="utf-8")
         elif snapshot_path.exists():
             raise AssertionError('snapshot exists but is not a file: {}'.format(shorten_path(snapshot_path)))
         else:
