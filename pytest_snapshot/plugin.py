@@ -142,10 +142,10 @@ class Snapshot(object):
             snapshot_path.parent.mkdir(parents=True, exist_ok=True)
             if expected_value is not None:
                 if expected_value != value:
-                    snapshot_path.write_text(value)
+                    snapshot_path.write_text(value, encoding='utf-8')
                     self._updated_snapshots.append(snapshot_path)
             else:
-                snapshot_path.write_text(value)
+                snapshot_path.write_text(value, encoding='utf-8')
                 self._created_snapshots.append(snapshot_path)
         else:
             if expected_value is not None:
